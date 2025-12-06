@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ZC_ZPOGRNMIRO'
+define service ZSD_ZPOGRNMIRO {
+  expose ZC_POGRNMIRO;
+}

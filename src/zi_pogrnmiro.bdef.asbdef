@@ -1,0 +1,49 @@
+managed implementation in class zbp_i_pogrnmiro unique;
+strict ( 2 );
+
+define behavior for ZI_POGRNMIRO //alias <alias_name>
+//persistent table zmm_pogrnmiro
+with unmanaged save
+lock master
+authorization master ( instance )
+etag master CreatedOn
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) Id;
+
+  field ( readonly ) Ebeln, Createdby, Createdon, Mblnr, Mjahr, Name1, Mirodoc, Miroyear;
+
+  field ( mandatory ) Lifnr, Quantity, Unit;
+
+  action ( features : instance ) CreatePO result [1] $self;
+  action ( features : instance ) CreateGrn result [1] $self;
+  action ( features : instance ) CreateMiro result [1] $self;
+
+  determination fetchname on modify { field Lifnr; create; }
+
+  mapping for zmm_pogrnmiro
+    {
+      Id        = id;
+      Plant     = plant;
+      Matnr     = matnr;
+      Lifnr     = lifnr;
+      Quantity  = quantity;
+      Unit      = unit;
+      Batch     = batch;
+      Currency  = currency;
+      Rate      = rate;
+      Ebeln     = ebeln;
+      Mblnr     = mblnr;
+      Mjahr     = mjahr;
+      Mirodoc   = mirodoc;
+      Miroyear  = miro_year;
+      Name1     = name1;
+      CreatedBy = created_by;
+      CreatedOn = created_on;
+    }
+
+}

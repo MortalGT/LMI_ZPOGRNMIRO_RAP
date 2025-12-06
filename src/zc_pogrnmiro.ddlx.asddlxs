@@ -1,0 +1,95 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'PO > GRN > MIRO Automation',
+                typeNamePlural: 'PO > GRN > MIRO Automation',
+                title: { type: #STANDARD, label: 'PO to MIRO Automation', value: 'Name1' } },
+                presentationVariant: [{ sortOrder: [{ by : 'Id', direction: #ASC }] }]}
+
+annotate view ZC_POGRNMIRO with
+{
+
+  @UI.facet: [{ id : 'POtoMRN',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Create Purchase Order',
+                position: 10 }]
+
+  @UI.hidden: true
+  Id;
+
+  @UI: { lineItem:       [{ position: 10 }],
+         identification: [{ position: 10 }],
+         selectionField: [{ position: 10 }] }
+  Lifnr;
+
+  @UI: { lineItem:       [{ position: 20 }],
+         identification: [{ position: 20 }],
+         selectionField: [{ position: 20 }] }
+  Name1;
+
+  @UI: { lineItem:       [{ position: 30 }],
+         identification: [{ position: 30 }],
+         selectionField: [{ position: 30 }]}
+  Plant;
+
+  @UI: { lineItem:       [{ position: 40 }],
+         identification: [{ position: 40 }],
+         selectionField: [{ position: 40 }] }
+  Matnr;
+
+  @UI: { lineItem:       [{ position: 50 }],
+         identification: [{ position: 50 }] }
+  Quantity;
+
+  @UI: { lineItem:       [{ position: 60 }],
+         identification: [{ position: 60 }] }
+  Unit;
+
+  @UI: { lineItem:       [{ position: 70 }],
+         identification: [{ position: 70 }] }
+  Batch;
+
+  @UI: { lineItem:       [{ position: 80 }],
+         identification: [{ position: 80 }] }
+  Rate;
+
+  @UI: { lineItem:       [{ position: 90 }],
+         identification: [{ position: 90 }] }
+  Currency;
+
+  @UI: {  lineItem:       [ { position: 100 }, { type: #FOR_ACTION, dataAction: 'CreatePO', label: 'Create PO' } ],
+  identification: [ { position: 100 }, { type: #FOR_ACTION, dataAction: 'CreatePO', label: 'Create PO' } ],
+  selectionField: [{ position: 100 }]  }
+  Ebeln;
+
+  @UI: {  lineItem: [ { position: 110 }, { type: #FOR_ACTION, dataAction: 'CreateGrn', label: 'Post GRN' } ],
+        identification: [ { position: 110 }, { type: #FOR_ACTION, dataAction: 'CreateGrn', label: 'Post GRN' } ],
+       selectionField: [{ position: 110 }] }
+  Mblnr;
+
+  @UI: { lineItem:       [{ position: 120 }],
+         identification: [{ position: 120 }],
+         selectionField: [{ position: 120 }] }
+  Mjahr;
+
+  @UI: {  lineItem: [ { position: 130 }, { type: #FOR_ACTION, dataAction: 'CreateMiro', label: 'Post Miro' } ],
+        identification: [ { position: 130 }, { type: #FOR_ACTION, dataAction: 'CreateMiro', label: 'Post Miro' } ],
+       selectionField: [{ position: 130 }] }
+  Mirodoc;
+
+  @UI: { lineItem:       [{ position: 140 }],
+         identification: [{ position: 140 }],
+         selectionField: [{ position: 140 }] }
+  MiroYear;
+
+  @UI: { lineItem:       [{ position: 150 }],
+         identification: [{ position: 150 }] }
+  CreatedBy;
+
+  @UI.hidden: true
+  @UI: { lineItem:       [{ position: 160 }],
+         identification: [{ position: 160 }] }
+  CreatedOn;
+
+}
